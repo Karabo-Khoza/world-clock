@@ -1,5 +1,5 @@
-//Cairo Time Display
-setInterval(function () {
+function updateTime() {
+  //Cairo Time Display
   let cairoElement = document.querySelector("#cairo");
   if (cairoElement) {
     let cairoDateElemnt = cairoElement.querySelector(".date");
@@ -8,13 +8,11 @@ setInterval(function () {
 
     cairoDateElemnt.innerHTML = cairoTime.format("dddd, MMMM Do YYYY");
     cairoTimeElement.innerHTML = `${cairoTime.format(
-      "hh:mm:ss [<small>]A[</small>]"
+      "HH:mm[<small>]:ss a[</small>]"
     )}`;
   }
-}, 1000);
 
-//Greece Time Display
-setInterval(function () {
+  //Greece Time Display
   let greeceElement = document.querySelector("#greece");
   if (greeceElement) {
     let greeceDateElemnt = greeceElement.querySelector(".date");
@@ -23,13 +21,11 @@ setInterval(function () {
 
     greeceDateElemnt.innerHTML = greeceTime.format("dddd, MMMM Do YYYY");
     greeceTimeElement.innerHTML = `${greeceTime.format(
-      "hh:mm:ss [<small>]A[</small>]"
+      "HH:mm[<small>]:ss a[</small>]"
     )}`;
   }
-}, 1000);
 
-//Bangkok Time Display
-setInterval(function () {
+  //Bangkok Time Display
   let bangkokElement = document.querySelector("#bangkok");
   if (bangkokElement) {
     let bangkokDateElemnt = bangkokElement.querySelector(".date");
@@ -38,13 +34,11 @@ setInterval(function () {
 
     bangkokDateElemnt.innerHTML = bangkokTime.format("dddd, MMMM Do YYYY");
     bangkokTimeElement.innerHTML = `${bangkokTime.format(
-      "hh:mm:ss [<small>]A[</small>]"
+      "HH:mm[<small>]:ss a[</small>]"
     )}`;
   }
-}, 1000);
 
-//Dubai Time Display
-setInterval(function () {
+  //Dubai Time Display
   let dubaiElement = document.querySelector("#dubai");
   if (dubaiElement) {
     let dubaiDateElemnt = dubaiElement.querySelector(".date");
@@ -53,10 +47,13 @@ setInterval(function () {
 
     dubaiDateElemnt.innerHTML = dubaiTime.format("dddd, MMMM Do YYYY");
     dubaiTimeElement.innerHTML = `${dubaiTime.format(
-      "hh:mm:ss [<small>]A[</small>]"
+      "HH:mm[<small>]:ss a[</small>]"
     )}`;
   }
-}, 1000);
+}
+
+updateCity;
+setInterval(updateTime, 1000);
 
 //Event Listener for City Selection
 function updateCity(event) {
@@ -70,7 +67,7 @@ function updateCity(event) {
 
   citiesElement.innerHTML += `
   <div class="city">
-    <div class="time">${cityTime.format("hh:mm:ss [<small>]A[</small>]")}</div>
+    <div class="time">${cityTime.format("HH:mm[<small>]:ss a[</small>]")}</div>
     <div>
       <h2>${cityName}</h2>
       <div class="date">${cityTime.format("dddd, MMMM Do YYYY")}</div>
